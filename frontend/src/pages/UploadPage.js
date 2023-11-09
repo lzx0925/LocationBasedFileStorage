@@ -33,7 +33,7 @@ const UploadPage = () => {
           </div>
         )}
       </div>
-      <button className="upload-button" onClick={handleSubmit}>
+      <button className="third-button" onClick={handleSubmit}>
         Upload
       </button>
     </div>
