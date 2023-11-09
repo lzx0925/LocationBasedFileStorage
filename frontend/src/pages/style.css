@@ -1,0 +1,17 @@
+#upload-page > * {
+  margin: 1rem 0;
+}
+
+#upload-container {
+  display: flex;
+}
+
+#upload-container > * {
+  flex: 1;
+  padding: 0 2rem;
+}
+
+#upload-container .right {
+  border-left: solid 1px var(--font-light-color);
+  padding: 1rem 1rem;
+}

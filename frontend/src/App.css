@@ -1,38 +1,55 @@
+:root {
+  --main-color: white;
+  --second-color: #f1f2f5;
+  --third-color: #0a7ea3;
+  --fourth-color: #026688;
+  --font-light-color: #c3c6d1;
+  --font-dark-color: #3f4756;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  text-align: center;
+  background: var(--second-color);
 }
 
-.App-link {
-  color: #61dafb;
+p {
+  margin: 0;
+  display: inline-block;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h1 {
+  margin: 0;
+}
+
+.third-button {
+  background: none;
+  border: solid 1px var(--third-color);
+  border-radius: 0.3rem;
+  padding: 0.5rem 1rem;
+
+  color: var(--third-color);
+
+  cursor: pointer;
+  transition: border ease-in-out 0.2s, color ease-in-out 0.2s,
+    background ease-in-out 0.2s;
+}
+
+.third-button:hover {
+  border: solid 1px var(--fourth-color);
+  background: rgba(0, 0, 0, 0.018);
+  color: var(--fourth-color);
+}
+
+.hyperlink-button {
+  text-decoration: underline;
+  color: blue;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: color ease-in-out 0.2s;
+}
+
+.hyperlink-button:hover {
+  color: rgb(0, 0, 203);
 }

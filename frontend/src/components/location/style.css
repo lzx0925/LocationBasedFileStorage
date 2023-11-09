@@ -1,0 +1,32 @@
+#location {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+#location p {
+  color: var(--font-dark-color);
+}
+
+#buffer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#location input {
+  border: none;
+  background: var(--main-color);
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+#location > div:nth-child(3) > * {
+  margin: 0.25rem;
+}
+
+#location .third-button {
+  border-radius: 1rem;
+}
