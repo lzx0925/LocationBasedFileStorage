@@ -53,3 +53,16 @@ h1 {
 .hyperlink-button:hover {
   color: rgb(0, 0, 203);
 }
+
+
+@keyframes vibrate {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px);}
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+.vibrate-animation {
+  animation: vibrate 0.5s linear;
+}

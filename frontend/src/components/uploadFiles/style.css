@@ -1,4 +1,4 @@
-.drag-container {
+#drag-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,12 +14,12 @@
   cursor: pointer;
 }
 
-.drag-container > p {
+#drag-container > p {
   font-size: 1.1rem;
   color: var(--font-light-color);
 }
 
-.drag-container .icon {
+#drag-container .icon {
   color: #dddee5;
   font-size: 3rem;
 }

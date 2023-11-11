@@ -4,10 +4,26 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpload } from "@fortawesome/free-solid-svg-icons";
 import "./style.css";
 
-const UploadFiles = ({ files, handleFiles }) => {
+const maxSize = 500000;
+
+const UploadFiles = ({
+  files,
+  handleFiles,
+  fileVibrate,
+  handleOversizedFiles,
+}) => {
   const { getRootProps, getInputProps } = useDropzone({
     onDrop: (acceptedFiles) => {
-      handleFiles(acceptedFiles);
+      // handleFiles(acceptedFiles);
+      acceptedFiles.forEach((file) => console.log(file.size, maxSize));
+      const oversizedFiles = acceptedFiles.filter(
+        (file) => file.size > maxSize
+      );
+      const allowedFiles = acceptedFiles.filter((file) => file.size <= maxSize);
+
+      if (oversizedFiles.length > 0) handleOversizedFiles(oversizedFiles);
+
+      handleFiles(allowedFiles);
     },
     multiple: true,
   });
@@ -17,7 +33,11 @@ const UploadFiles = ({ files, handleFiles }) => {
   }, [files]);
 
   return (
-    <div className="drag-container" {...getRootProps()}>
+    <div
+      id="drag-container"
+      className={fileVibrate ? "vibrate-animation" : ""}
+      {...getRootProps()}
+    >
       <input {...getInputProps()} />
       <FontAwesomeIcon icon={faUpload} className="icon" />
       <p>Drag & Drop files here</p>
