@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpload } from "@fortawesome/free-solid-svg-icons";
 import "./style.css";
 
-const maxSize = 500000;
+const maxSize = 5000000;
 
 const UploadFiles = ({
   files,
