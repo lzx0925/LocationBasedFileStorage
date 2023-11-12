@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Location from "../components/location/Location";
 import UploadFiles from "../components/uploadFiles/UploadFiles";
 import Preview from "../components/preview/Preview";
+import { uploadFiles } from "../services/files";
 import "./style.css";
 
 const UploadPage = () => {
@@ -39,6 +41,7 @@ const UploadPage = () => {
     }
   }, [oversizedFiles]);
 
+  const navigate = useNavigate();
   const handleSubmit = async () => {
     if (!consent) {
       setCheckBoxVibrate(true);
@@ -51,8 +54,12 @@ const UploadPage = () => {
     if (files.length === 0) {
       setFileVibrate(true);
       setTimeout(() => setFileVibrate(false), 500);
-    } else if (consent && !modify && files.length > 0)
-      console.log("submit successfully! You submit:");
+    }
+    if (consent && !modify && files.length > 0) {
+      uploadFiles(city, files).then((response) => {
+        navigate(`/file/${city}`);
+      });
+    }
   };
 
   return (
