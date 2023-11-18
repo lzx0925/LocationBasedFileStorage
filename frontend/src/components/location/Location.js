@@ -16,8 +16,9 @@ const Location = ({ city, handleCity, handleModify, inputVibrate }) => {
         fetch(url)
           .then((res) => res.json())
           .then((data) => {
-            handleCity(data.address.city);
-            setInput(data.address.city);
+            const city = data.address.city || data.address.town || data.address.village || data.address.hamlet || null
+            handleCity(city);
+            setInput(city);
             setLoading(false);
           });
       },
