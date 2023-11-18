@@ -1,5 +1,5 @@
 const express = require("express");
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
 const cors = require("cors");
 require("dotenv").config();
 const { readdirSync } = require("fs");
@@ -20,13 +20,13 @@ readdirSync("./routes").map((r) => app.use("/", require("./routes/" + r)));
 app.use("/files", filesRoute);
 
 //database
-mongoose
-  .connect(process.env.DB_URL, {
-    // keepAlive: true,
-    // useNewUrlParser: true,
-    // useUnifiedTopology: true,
-  })
-  .then(() => console.log("Database Connected Successfully!"));
+// mongoose
+//   .connect(process.env.DB_URL, {
+//     // keepAlive: true,
+//     // useNewUrlParser: true,
+//     // useUnifiedTopology: true,
+//   })
+//   .then(() => console.log("Database Connected Successfully!"));
 
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
