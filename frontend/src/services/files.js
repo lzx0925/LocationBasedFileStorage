@@ -1,5 +1,7 @@
+import { message } from 'antd';
 import axios from "axios";
 const apiUrl = "http://localhost:5000";
+
 
 export function uploadFiles(city, files) {
   const formData = new FormData();
@@ -11,10 +13,12 @@ export function uploadFiles(city, files) {
       .post(`${apiUrl}/files/upload`, formData)
       .then((response) => {
         console.log(response.data);
+        message.success('Upload Successfully!');
         resolve({ status: true, data: response.data });
       })
       .catch((err) => {
         console.log(err);
+        message.error('Upload Unsuccessfully, Please Try Again!');
         reject({ status: false, err: err.message });
       });
   });
