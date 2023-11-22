@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Location from "../components/location/Location";
 import UploadFiles from "../components/uploadFiles/UploadFiles";
 import Preview from "../components/preview/Preview";
+import { message } from 'antd';
 import { uploadFiles } from "../services/files";
 import "./style.css";
 
@@ -47,6 +48,10 @@ const UploadPage = () => {
       setCheckBoxVibrate(true);
       setTimeout(() => setCheckBoxVibrate(false), 500);
     }
+    if (!city) {
+      message.error('The system has not detected your location, please input your city manually')
+      setTimeout(() => setInputVibrate(false), 500);
+    }
     if (modify || !city) {
       setInputVibrate(true);
       setTimeout(() => setInputVibrate(false), 500);
@@ -55,7 +60,7 @@ const UploadPage = () => {
       setFileVibrate(true);
       setTimeout(() => setFileVibrate(false), 500);
     }
-    if (consent && !modify && files.length > 0) {
+    if (consent && !modify && files.length > 0 && city) {
       uploadFiles(city, files).then((response) => {
         navigate(`/file/${city}`);
       });
